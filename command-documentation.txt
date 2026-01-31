@@ -1,0 +1,50 @@
+Backend
+----------------- phase 1 ---------------------
+step 1 : create a folder for backend
+step 2: Initialize Node.js project using this command (npm init -y) into above created backend folder
+step 3 : install requried dependencies (npm install express mongoose dotenv cors) and for developments install (npm install --save-dev nodemon)
+step 4 : Open package.json and add scripts 
+           "scripts": {
+           "start": "node server.js",
+           "dev": "nodemon server.js"
+           }
+step 5 : Create basic folder structure (MVC-ready) using this command (mkdir controllers models routes config)
+step 6 : create server.js file (New-Item server.js)
+step 7 : Create basic Express server in server.js
+step 8 : Run the server using this command (npm run dev)              
+--------------Phase 1 result : server has been running successfull -----------------------
+
+----------------- phase 2 Connect MongoDB using Mongoose ---------------------
+step 9 : create .env in the project root and set PORT and MONGO_URI variable to connect moogoose
+step 10 : install dotenv (npm list dotenv)
+step 11 : create db.js file into config folder  
+step 12 : Just open Compass → connect to mongodb://127.0.0.1:27017 from local mongo compass and Run the server (npm run dev)
+--------------Phase 2 result : MongoDB Connected /n Server running on port 5000-----------------------
+
+----------------- phase 3 Mongoose Schema + Validation ---------------------
+step 13 : create Recipe.js file into the models folder
+step 14(Important) : insert a sample data into db from server.js with a test route and then remove this route after testing
+----------------- phase 3 result : Schema added and tested ---------------------
+
+----------------- phase 4 Recipe Controller ---------------------
+step 15 : create the controller functions and export it -- create , get all , get by id
+step 16 : Create routes file (recipeRoutes.js) inside routes folder and declare the routes
+step 17 : call the route files from express (server.js) 
+step 18 : test all the API routes in POSTMAN (http://localhost:5000/api/recipes) with the sample testing data in body raw json format
+            {
+                "title": "Chicken Curry",
+                "description": "Spicy Indian curry",
+                "ingredients": ["Chicken", "Onion", "Spices"], ------ to create
+                "instructions": "Cook everything well",
+                "cookingTime": 40
+            }
+           --- http://localhost:5000/api/recipes --- to get all the recipes
+           --- http://localhost:5000/api/recipes/<recipe_id> --- to get single the recipes
+step 19 : Update & Delete Recipe APIs in controller and test the API in PostMan using PUT and DELET Methods
+----------------- phase 4 Result : implemented all CRUD Functionality and tested in POSTMAN ---------------------
+
+----------------- phase 5 Centralized Error Handling & Cleaner Responses ---------------------
+step 20 : Install express-async-handler using (npm install express-async-handler) This removes the need for try/catch in every controller.
+step 21 : Create Error Middleware (mkdir middlewares) folder and create a error handling file (New-Item middlewares/errorMiddleware.js)
+step 22 : using the error handling function for the controllers
+
